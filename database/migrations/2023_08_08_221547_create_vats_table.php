@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('vats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('merchant_id');
+            $table->decimal('percentage',12,2);
             $table->timestamps();
         });
     }

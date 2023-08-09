@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->text('name');
+            $table->text('description');
+            $table->decimal('price',12,2);
+            $table->decimal('vat_percentage',12,2);
+            $table->decimal('vat_amount',12,2);
+            $table->decimal('price_with_vat',12,2);
             $table->timestamps();
         });
     }

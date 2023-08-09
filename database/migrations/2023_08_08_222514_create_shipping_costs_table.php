@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('shipping_costs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('merchant_id');
+            $table->decimal('value',12,2);
             $table->timestamps();
         });
     }

@@ -22,6 +22,7 @@ Route::prefix('consumer')->namespace('consumer')->group(function(){
     Route::post('register','ConsumerRegistrationController@register');
     Route::post('login','ConsumerLoginController@login')/*->middleware(['auth:consumer-api','scope:consumer'])*/;
 });
-Route::prefix('merchant')->group(function(){
-
+Route::prefix('merchant')->namespace('merchant')->group(function(){
+    Route::post('register','MerchantRegistrationController@register');
+    Route::post('login','ConsumerLoginController@login')/*->middleware(['auth:merchant-api','scope:merchant'])*/;
 });

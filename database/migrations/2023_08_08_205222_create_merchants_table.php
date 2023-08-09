@@ -17,10 +17,13 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('store_name');
             $table->boolean('is_vat_included')->default(true);
+            $table->decimal('vat_percentage',12,2)->default(0);
+            $table->decimal('shipping_cost',12,2)->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
