@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('consumer_id');
+            $table->unsignedBigInteger('product_id');
+            $table->integer('quantity');
+            $table->decimal('unit_price',12,2);
+            $table->decimal('vat_percentage',12,2);
+            $table->decimal('vat_amount',12,2);
+            $table->decimal('unit_price_with_vat',12,2);
+            $table->decimal('total_price',12,2);
+            $table->decimal('total_vat_amount',12,2);
+            $table->decimal('total_price_with_vat',12,2);
             $table->timestamps();
         });
     }

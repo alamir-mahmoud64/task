@@ -21,17 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('consumer')->namespace('consumer')->group(function(){
     Route::post('register','ConsumerRegistrationController@register');
     Route::post('login','ConsumerLoginController@login');
-    /*Route::middleware(['auth:consumer-api','scope:consumer'])->group(function(){
-
-    });*/
-});
-Route::prefix('merchant')->group(function(){
-
-    Route::namespace('merchant')->group(function(){
-        Route::post('register','MerchantRegistrationController@register');
-        Route::post('login','MerchantLoginController@login');
+    Route::middleware(['auth:consumer-api','scope:consumer'])->group(function(){
+        Route::apiResource('cart','CartController');
     });
-
+});
+Route::prefix('merchant')->namespace('merchant')->group(function(){
+    Route::post('register','MerchantRegistrationController@register');
+    Route::post('login','MerchantLoginController@login');
     Route::middleware(['auth:merchant-api','scope:merchant'])->group(function(){
         Route::apiResource('products','ProductsController');
     });

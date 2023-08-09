@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\merchant;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AddProductRequest;
 use App\Models\merchant\Product;
 use App\Traits\APIResponseTrait;
