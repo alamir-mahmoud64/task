@@ -21,7 +21,7 @@ class MerchantRegistrationController extends Controller
             'last_name',
             'store_name',
             'is_vat_included',
-            'percentage',
+            'vat_percentage',
             'email'
         ]);
         $request_data['password'] = Hash::make($request->password);

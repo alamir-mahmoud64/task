@@ -3,11 +3,11 @@
 namespace App\Models\merchant;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
-class Merchant extends Model
+class Merchant extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -20,6 +20,12 @@ class Merchant extends Model
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'store_name',
+        'is_vat_included',
+        'vat_percentage',
+        'shipping_cost',
     ];
 
     /**
@@ -41,4 +47,9 @@ class Merchant extends Model
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

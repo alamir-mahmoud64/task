@@ -27,9 +27,9 @@ class MerchantRegistrationRequest extends FormRequest
         return [
             'first_name'=>'required|string|min:3|max:20',
             'last_name'=>'required|string|min:3|max:20',
-            'store_name'=>'required|string|min:1|max:100',
+            'store_name'=>'required|string|min:1|max:100|unique:merchants',
             'is_vat_included'=>'required|boolean',
-            'percentage'=>'required|decimal:2',
+            'vat_percentage'=>'required|decimal:2',
             'shipping_cost'=>'sometimes|decimal:2',
             'email'=>'required|email|unique:merchants',
             'password'=>['required', 'confirmed', Password::min(9)->mixedCase()->numbers()->symbols()],
