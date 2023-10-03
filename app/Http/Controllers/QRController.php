@@ -23,7 +23,7 @@ class QRController extends Controller
 
 
         $pdf = App::make('dompdf.wrapper');
-        $customPaper = array(0,0,130,300);
+        $customPaper = array(0,0,115,300);
         $pdf->setPaper($customPaper,'landscape');
         $pdf->loadView('qr',compact('collection','qrObj'));
         return $pdf->download("QR_Data.pdf");

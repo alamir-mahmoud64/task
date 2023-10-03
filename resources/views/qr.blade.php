@@ -11,21 +11,17 @@
             page-break-after: always;
         }
         .img{
-            height:135px;
-            width:135px;
+            height:145px;
+            width:145px;
         }
         td{
             padding:1px;
             text-align: center;
         }
-        p.qr_val{
-            padding: 0px;
-            margin: 0px;
+        td.qr_name{
+            padding: 7px;
             font-weight: bold;
-        }
-        p.qr_name{
-            padding: 3px;
-            font-weight: bold;
+            text-align: center;
         }
         @page { margin: 0px; }
         body { margin: 0px; }
@@ -38,10 +34,9 @@
                 <tr>
                     <td>
                         <img src="{{$qrObj->render(trim($rec['qr_value']))}}" class="img" alt="QR Code" />
-                        <p class="qr_val">{{trim($rec['qr_value'])}}</p>
                     </td>
-                    <td style="border-left: 1px solid black;">
-                        <p class="qr_name">{{trim($rec['name'])}}</p>
+                    <td style="border-left: 1px solid black;" class="qr_name">
+                        {{trim($rec['name'])}}
                     </td>
                 </tr>
             </table>
